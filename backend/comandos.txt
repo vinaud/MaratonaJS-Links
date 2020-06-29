@@ -2,3 +2,5 @@ npm init
 npm install --save express
 src/index.js
 controllers/auth.js
+
+npm install --save nodemon
