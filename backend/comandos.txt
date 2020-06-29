@@ -4,3 +4,10 @@ src/index.js
 controllers/auth.js
 
 npm install --save nodemon
+npm start
+
+npm install --save sequelize
+npm install --save sequelize-cli
+
+cd src 
+npx sequelize-cli init:models
