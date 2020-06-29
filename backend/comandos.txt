@@ -14,4 +14,5 @@ npx sequelize-cli init:config
 
 npm install --save dotenv
 arquivo .env
-config.json -> config.js
+config.json -> config.js / mudar tambem em models/index
+npm install --save mysql2
