@@ -3,7 +3,11 @@ const db = require('./models');
 const authController = require('./controllers/auth')
 
 const app = express();
+
 app.use('/auth', authController);
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
 
 app.get('/', (request, response) => {
     return response.json('Api running...');

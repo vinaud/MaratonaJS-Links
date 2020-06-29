@@ -12,8 +12,9 @@ router.get('/sign-in', (request, response) =>{
 })
 
 router.get('/sign-up', async (request, response) =>{
-    const email = 'user@domain.com';
-    const password = '123456';
+    const body = request.body;
+    const email = body.email;
+    const password = body.password;
     const hash = bcrypt.hashSync(password,saltRounds);
     const result = await Account.create({email, password: hash});
     return response.json(result);
