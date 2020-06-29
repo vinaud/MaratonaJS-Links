@@ -8,6 +8,10 @@ npm start
 
 npm install --save sequelize
 npm install --save sequelize-cli
-
 cd src 
 npx sequelize-cli init:models
+npx sequelize-cli init:config
+
+npm install --save dotenv
+arquivo .env
+config.json -> config.js
