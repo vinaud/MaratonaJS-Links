@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-
+router.use(express.json());
 const { Account } = require('../models');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -12,12 +12,11 @@ router.get('/sign-in', (request, response) =>{
 })
 
 router.get('/sign-up', async (request, response) =>{
-    const body = request.body;
-    const email = body.email;
-    const password = body.password;
+    const { email, password } = request.body;
+    console.log({ email, password });
     const hash = bcrypt.hashSync(password,saltRounds);
     const result = await Account.create({email, password: hash});
-    return response.json(result);
+    return response.json({ email, password: hash });
 })
 
 module.exports = router;
