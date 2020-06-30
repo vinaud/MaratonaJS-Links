@@ -1,10 +1,11 @@
 const express = require('express');
 const db = require('./models');
 const authController = require('./controllers/auth');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const response = require('./middlewares/response');
 
 const app = express();
-
+app.use(response);
 app.use('/auth', authController);
 app.use(express.json());
 app.use(bodyParser.json())
