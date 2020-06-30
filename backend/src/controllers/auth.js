@@ -16,7 +16,7 @@ router.get('/sign-up', async (request, response) =>{
     
     const account = await Account.findOne({ where: {email}});
     if(account){
-        return response.json('Account already exists');
+        return response.jsonBadRequest(null, 'Account already exists');
     }
 
     const hash = bcrypt.hashSync(password,saltRounds);
