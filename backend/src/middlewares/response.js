@@ -60,12 +60,12 @@ const jsonServerError =  function(data, message, metadata) {
     return this.json({message, data, metadata, status: status});
 }
 
-const response = (requisition, response, next) => {
-    response.jsonOK = jsonOK;
-    response.jsonBadRequest = jsonBadRequest;
-    response.jsonUnauthorized = jsonUnauthorized;
-    response.jsonNotFound = jsonNotFound;
-    response.jsonServerError = jsonServerError;
+const response = (requisition, res, next) => {
+    res.jsonOK = jsonOK;
+    res.jsonBadRequest = jsonBadRequest;
+    res.jsonUnauthorized = jsonUnauthorized;
+    res.jsonNotFound = jsonNotFound;
+    res.jsonServerError = jsonServerError;
     next();
 }
 

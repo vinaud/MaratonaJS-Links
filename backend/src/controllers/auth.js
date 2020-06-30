@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 router.use(express.json());
 const { Account } = require('../models');
+const { accountSignUp } = require('../validators/account');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -11,7 +12,7 @@ router.get('/sign-in', (request, response) =>{
     return response.json("Sign in"); 
 })
 
-router.get('/sign-up', async (request, response) =>{
+router.get('/sign-up', accountSignUp, async (request, response) =>{
     const { email, password } = request.body;
     
     const account = await Account.findOne({ where: {email}});

@@ -18,3 +18,5 @@ config.json -> config.js / mudar tambem em models/index
 npm install --save mysql2
 
 npm install --save bcrypt
+
+npm install --save @hapi/joi
